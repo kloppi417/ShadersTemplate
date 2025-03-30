@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+# Ensure an argument is provided
+if [[ -z "$1" ]]; then
+    echo "Usage: shaders <version: 120 | 330>"
+    exit 1
+fi
+
+src="/usr/local/lib/shaders/$1"
+
+mkdir -p "$(pwd)"/shaders
+
+if [[ $# == 1 ]]; then
+    cp -n "$src"/* "$(pwd)"/shaders
+fi
+
+if [[ $# -gt 1 ]]; then
+    shift 
+    
+    for file in "$@"; do
+        program="${file%%[0-9]*}"
+        number="${file#"$program"}"
+        for file in "$src"/"$program".*; do
+            cp -n "$file" "$(pwd)"/shaders/"$program""$number"."${file##*.}"
+        done
+    done
+
+fi
