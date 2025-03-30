@@ -6,8 +6,8 @@ A script that allows easily copying boilerplate shader code for the Iris shaders
 
 Run the script `install.sh` to install. This does two things:
 
-1. Copies the `shaders` script to `/usr/local/bin/`
-2. Copies the `shaders` folder to `/usr/local/lib/`
+1. Copies the `bin/shaders` script to `/usr/local/bin/`
+2. Copies the `lib/shaders` folder to `/usr/local/lib/`
 
 It needs `sudo` access and therefore will ask for your password.
 
